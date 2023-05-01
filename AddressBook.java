@@ -9,7 +9,6 @@ public class AddressBook {
     public int zip;
     public int phoneNumber;
 
-
     Scanner sc = new Scanner(System.in);
     ArrayList list = new ArrayList();
 
@@ -38,22 +37,22 @@ public class AddressBook {
         list.add(state);
     }
 
-    public void setPincode(int zip) {
+    public void setPincode(int pincode) {
         this.zip = zip;
         list.add(zip);
     }
+
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
         list.add(phoneNumber);
     }
-    public void showlist() {
-        System.out.println(list);
-    }
 
-    /*-------------------------------EDIT LIST-------------------------------------------*/
 
-    public void editFirstName(int f, String firstName)
-    {
+
+    /*-------------------------Edit List----------------------------------*/
+
+
+    public void editFirstName(int f, String firstName) {
         this.firstName = firstName;
         list.set(f, firstName);
 
@@ -83,19 +82,28 @@ public class AddressBook {
 
     }
 
-    public void editzip(int p, int zip) {
+    public void editZip(int p, int zip) {
         this.zip = zip;
+
         list.set(p, zip);
     }
+
     public void editPhoneNumber(int ph, int phoneNumber) {
         this.phoneNumber = phoneNumber;
         list.set(ph, phoneNumber);
     }
-    /*--------------------------------------------Add Contact----------------------------------------*/
+
+
+    public void showlist() {
+        System.out.println(list);
+    }
+
+    /*--------------------------------------Add to List----------------------------------*/
+
     public void Addcontact() {
 
-        while (true) {
-            System.out.println("Enter a number to Add : \n 1 - First Name \n 2 - Last Name \n 3 - City \n 4 - State \n 4 - Address \n 4 - Zip \n 7 - Phone Number \n 8 - Display List  \n 9 - Return to Main menu ");
+        while (1 < 2) {
+            System.out.println("Enter a number to update :\n 1 - First name \n 2 - LastName \n 3 - City \n 4 - State\n 4 - address \n 4 - zip \n 7 - Phone Number \n 8 - Display \n 9 - Delete List \n 10 - Return to Main Menu ");
             int n = sc.nextInt();
 
             if (n == 1) {
@@ -128,17 +136,19 @@ public class AddressBook {
                 setPincode(pin);
             } else if (n == 8) {
                 showlist();
+            } else if (n == 9) {
+                deletelist();
             } else {
                 break;
             }
         }
     }
 
-    /*-----------------------------------------------EDIT LIST--------------------------------------*/
-    public void editcontact() {
+    /*-----------------------------------UPDATE-------------------------------------*/
+    public void updatecontact() {
 
-        while (true) {
-            System.out.println("Enter a number to update : \n 1 - First name \n 2 - LastName \n 3 - City \n 4 - State\n 4 - Address \n 4 - Zip \n 7 - phonenumber \n 8- Display List \n 9 - Return to main menu ");
+        while (1 < 2) {
+            System.out.println("Enter a number to update ::\n 1 - First Name \n 2 - LastName \n 3 - City \n 4 - State\n 4 - Address \n 4 - zip \n 7 - Phone Number \n 8 - Display List \n 9 - Delete List \n 10 - Return to Main Menu ");
             int u = sc.nextInt();
 
             if (u == 1) {
@@ -159,24 +169,31 @@ public class AddressBook {
                 editState(3,state);
             } else if (u == 5) {
                 System.out.println("Enter the Address");
-                String adrr = sc.next();
-                editAddress(4,adrr);
+                String address = sc.next();
+                editAddress(4,address);
             } else if (u == 6) {
                 System.out.println("Enter the Phone Number");
                 int phone = sc.nextInt();
                 editPhoneNumber(5,phone);
             } else if (u == 7) {
                 System.out.println("Enter the Zip");
-                int pin = sc.nextInt();
-                editzip(6,pin);
+                int zip = sc.nextInt();
+                editZip(6,zip);
 
             } else if (u == 8) {
                 showlist();
-
+            } else if (u == 9) {
+                deletelist();
             } else {
                 break;
             }
         }
+    }
+    /*---------------------------------------DELETE LIST--------------------------*/
+
+    public void deletelist() {
+        list.clear();
+        System.out.println(list);
     }
 
 }
