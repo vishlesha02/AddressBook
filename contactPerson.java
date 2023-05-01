@@ -7,16 +7,17 @@ public class contactPerson extends AddressBook {
 
         Scanner sc = new Scanner(System.in);
 
-        AddressBook ab = new AddressBook();
-        while(1<2) {
-            System.out.println("Enter Number for following Operations \n 1-Add \n 2-Show the List");
+        AddressBookUC3 a = new AddressBookUC3();
+        while (1 < 2) {
+            System.out.println("Enter number \n 1-Add \n 2-Update \n 3-Show \n 4-exit");
             int num = sc.nextInt();
-            if (num==1){
-                System.out.println("Enter a number to add :\n 1 - First Name \n 2 - Last Name \n 3 - City \n 4 - State\n 4 - Address \n 4 - Zip\n 7 - Phone Number \n 8 - Display List \n 9 - Delete List \n 10 - Return to Main menu ");
-                ab.Addcontact();
-            }
-            else if (num == 2) {
-                ab.showlist();
+            if (num == 1) {
+                System.out.println("Enter a number to add ::\n 1 - First Name \n 2 - Last Name \n 3 - City \n 4 - State \n 4 - address \n 4 - Zip \n 7 - Phone Number \n 8- Display \n 9 - Delete everything \n 10 - Return to Main Menu ");
+                a.Addcontact();
+            } else if (num == 2) {
+                a.editcontact();
+            } else if (num == 3) {
+                a.showlist();
             } else {
                 break;
             }
